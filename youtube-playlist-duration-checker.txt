@@ -1,0 +1,33 @@
+var list = document.getElementsByClassName('ytd-thumbnail-overlay-time-status-renderer');
+var time = 0;
+
+function toS(hms) {
+  var a = hms.split(':');
+  while (a.length < 3) {
+    a.unshift(0);
+  }
+  var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+  return seconds;
+}
+
+function toHMS(totalSec) {
+  var hours = parseInt( totalSec / 3600 ) % 24;
+  var minutes = parseInt( totalSec / 60 ) % 60;
+  var seconds = totalSec % 60;
+  var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+  return result;
+}
+
+function add(item) {
+   /*item = item.getElementsByClassName('timestamp')[0];
+   item = item.getElementsByTagName('SPAN')[0]; */
+   var timeString = (item.innerText || item.textContent);
+   time += toS(timeString);
+}
+
+for (var i = 0; i < list.length; i++) {
+  var item = list[i];
+  add(item);
+}
+
+console.log("The full duration time is: " + toHMS(time));
