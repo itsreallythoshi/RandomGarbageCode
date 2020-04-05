@@ -1,0 +1,3 @@
+document.getElementsByTagName("video")[0].playbackRate = enterDesiredSpeedHere
+
+// I think the min is 0.1 and max is 5 to 10(not really sure on that)
