@@ -1,3 +1,13 @@
+/*
+How to use:
+Go to a YouTube playlist page you want to measure the length of. i.e- page with 'playlist?' url args. for example:  "https://www.youtube.com/playlist?list=PL ..."
+Then open developer console. (press ctrl + shift + j) or right click, click 'inspect' and go to console tab. 
+Then paste this whole code snippet in the console. 
+
+You will get an output like, 
+The full duration time is: 10:02:00
+*/
+
 var list = document.getElementsByClassName('ytd-thumbnail-overlay-time-status-renderer');
 var time = 0;
 
